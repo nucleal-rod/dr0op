@@ -1,12 +1,53 @@
 <template>
-    <div class='api-view'>
+    <nav class='api-nav'>
+        <h2 @click='doScroll("layer")'>
+            位图图层
+        </h2>
+        <h4 @click='doScroll("layer-new")'>
+            创建图层管理对象
+        </h4>
+        <h4 @click='doScroll("layer-get")'>
+            获取或创建图层
+        </h4>
+        <h4 @click='doScroll("layer-delete")'>
+            删除图层
+        </h4>
+        <h4 @click='doScroll("layer-update")'>
+            更新图层到画布
+        </h4>
+        <h4 @click='doScroll("layer-hidden")'>
+            隐藏图层
+        </h4>
+        <h4 @click='doScroll("layer-show")'>
+            显示图层
+        </h4>
+        <h2 @click='doScroll("animation")'>
+            动画或定时轮询
+        </h2>
+        <h2 @click='doScroll("colors")'>
+            颜色计算相关方法
+        </h2>
+        <h4 @click='doScroll("colors-formatColor")'>
+            颜色格式化
+        </h4>
+        <h4 @click='doScroll("colors-getRandomColors")'>
+            获取一组随机色
+        </h4>
+        <h4 @click='doScroll("colors-getLoopColors")'>
+            获取循环色
+        </h4>
+        <h2 @click='doScroll("ruler")'>
+            刻度尺辅助计算
+        </h2>
+    </nav>
+    <div class='api-view api-content-view'>
         <p>
             因为绘制的时候，比如canvas2D没有图层，某个数据改变可能就意味着需要全部重新绘制等，基于这些考虑，在这一章，对前面进行必要的补充。
         </p>
         <h2 id='fixed-layer'>
             位图图层
         </h2>
-        <p>
+        <p id='fixed-layer-new'>
             首先需要明确，图层服务的对象是canvas2D，svg某种意义上天生具有图层，不需要额外设计。让我们首先看看如何获取一个图层对象：
         </p>
         <pre q-code>
@@ -15,31 +56,31 @@ var layer=imageObject.layer();
         <p>
             这里的图层可以类比photoshop的图层去理解，我们提供了几个类似的方法来帮助使用图层对象。
         </p>
-        <p>
+        <p id='fixed-layer-get'>
             图层对象管理着图层，通过传递id可以获取对应图层的画笔，如果该图层不存在会自动创建（这里的画笔就是canvas2D画笔）：
         </p>
         <pre q-code>
 var painter=layer.painter(id);
             </pre>
-        <p>
+        <p id='fixed-layer-delete'>
             删除指定图层：
         </p>
         <pre q-code>
 layer.delete(id);
             </pre>
-        <p>
+        <p id='fixed-layer-update'>
             图层中的内容不会显示在画布上，为了显示在画布上，需要手动更新：
         </p>
         <pre q-code>
 layer.update();
             </pre>
-        <p>
+        <p id='fixed-layer-hidden'>
             隐藏图层：
         </p>
         <pre q-code>
 layer.hidden(id);
             </pre>
-        <p>
+        <p id='fixed-layer-show'>
             显示图层：
         </p>
         <pre q-code>
@@ -75,20 +116,20 @@ stop();
         <h2 id='fixed-colors'>
             颜色计算相关方法
         </h2>
-        <p>
+        <p id='fixed-colors-formatColor'>
             给定任意一个合法的css颜色字符串，把颜色统一转变成rgba格式，返回一个数组[r,g,b,a]：
         </p>
         <pre q-code>
 var rgbaArray=$$.formatColor(colorString);
             </pre>
-        <p>
+        <p id='fixed-colors-getRandomColors'>
             传递需要的颜色个数，返回一组随机色彩：
         </p>
         <pre q-code>
 // alpha可选，取值是0-1，表示颜色透明度
 var colors=$$.getRandomColors(number, alpha);
             </pre>
-        <p>
+        <p id='fixed-colors-getLoopColors'>
             传递需要的颜色个数，返回一组循环色彩：
         </p>
         <pre q-code>
@@ -127,6 +168,12 @@ rulerData = {
     export default {
         created() {
             changeActive('menu-2', 'tool');
+        },
+        methods: {
+            doScroll(fixedName) {
+                window.location.href = (window.location.href + "").replace(/\?fixed=.*$/, '') + "?fixed=" + fixedName;
+                fixedScroll();
+            }
         },
         mounted() {
             fixedScroll();

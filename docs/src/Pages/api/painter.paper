@@ -1,6 +1,71 @@
 <template>
-    <div class='api-view'>
-        <p>
+    <nav class='api-nav'>
+        <h2 @click='doScroll("new")'>
+            获取画笔
+        </h2>
+        <h4 @click='doScroll("config")'>
+            配置画笔
+        </h4>
+        <h2 @click='doScroll("canvas2d")'>
+            位图画笔
+        </h2>
+        <h2 @click='doScroll("svg")'>
+            矢图画笔
+        </h2>
+        <h2 @click='doScroll("method")'>
+            画笔上的绘图方法
+        </h2>
+        <h4 @click='doScroll("method-normal")'>
+            常规方法
+        </h4>
+        <h6 @click='doScroll("painter-text")'>
+            文字
+        </h6>
+        <h6 @click='doScroll("painter-arc")'>
+            弧形
+        </h6>
+        <h6 @click='doScroll("painter-circle")'>
+            圆
+        </h6>
+        <h6 @click='doScroll("painter-rect")'>
+            矩形
+        </h6>
+        <h4 @click='doScroll("painter-path")'>
+            路径
+        </h4>
+        <h2 @click='doScroll("gradient")'>
+            渐变色
+        </h2>
+        <h4 @click='doScroll("linearGradient")'>
+            线性渐变
+        </h4>
+        <h4 @click='doScroll("radialGradient")'>
+            环形渐变
+        </h4>
+        <h4 @click='doScroll("gradient-set")'>
+            设置与使用
+        </h4>
+        <h2 @click='doScroll("translate")'>
+            变换
+        </h2>
+        <h4 @click='doScroll("translate-save")'>
+            保存
+        </h4>
+        <h4 @click='doScroll("translate-restore")'>
+            恢复
+        </h4>
+        <h4 @click='doScroll("translate-translate")'>
+            移动
+        </h4>
+        <h4 @click='doScroll("translate-rotate")'>
+            旋转
+        </h4>
+        <h4 @click='doScroll("translate-scale")'>
+            缩放
+        </h4>
+    </nav>
+    <div class='api-view api-content-view'>
+        <p id="fixed-new">
             画笔是image2D的主体部分，根据当前绑定的结点不同，获取的是不同类型的画笔，目前支持svg和canvas2D画笔：
         </p>
         <pre q-code>
@@ -12,7 +77,7 @@ var painter=imageObject.painter();
         <p>
             如果维护的第一个结点是canvas，返回的就是专门在canvas上绘图的位图画笔，svg等别的类似。
         </p>
-        <p>
+        <p id='fixed-config'>
             获取画笔后就可以调用painter上的方法进行绘图了，不过在这之前，你还可以对画笔进行属性（文字大小，颜色等）配置：
         </p>
         <pre q-code>
@@ -127,10 +192,10 @@ painter.fillText("Step By Step", 100, 100).appendTo("g.text");
         <h2 id='fixed-method'>
             画笔上的绘图方法
         </h2>
-        <p>
+        <p id='fixed-method-normal'>
             上面说明的绘图方法都是具体画笔特有的（因为不同的画笔存在差异），除此之外，大部分方法是通用的。
         </p>
-        <p>
+        <p id='fixed-painter-text'>
             在点(x, y)处绘制填充的文字text；deg表示文字旋转角度，可选：
         </p>
         <pre q-code>
@@ -148,7 +213,7 @@ painter.strokeText(text, x, y[, deg]);
         <pre q-code>
 painter.fullText(text, x, y[, deg]);
             </pre>
-        <p>
+        <p id='fixed-painter-arc'>
             以(cx, cy)为圆心，内外半径分别是r1和r2，从弧度beginDeg开始，跨越弧度deg，绘制填充圆弧：
         </p>
         <pre q-code>
@@ -169,7 +234,7 @@ painter.strokeArc(cx, cy, r1, r2, beginDeg, deg);
         <pre q-code>
 painter.fullArc(cx, cy, r1, r2, beginDeg, deg);
             </pre>
-        <p>
+        <p id='fixed-painter-circle'>
             以(cx, cy)为圆心，半径r绘制填充圆形：
         </p>
         <pre q-code>
@@ -187,7 +252,7 @@ painter.strokeCircle(cx, cy, r);
         <pre q-code>
 painter.fullCircle(cx, cy, r);
             </pre>
-        <p>
+        <p id='fixed-painter-rect'>
             以(x, y)为左上角，宽width，高height绘制填充矩形：
         </p>
         <pre q-code>
@@ -205,7 +270,7 @@ painter.strokeRect(x, y, width, height);
         <pre q-code>
 painter.fullRect(x, y, width, height);
             </pre>
-        <h4>
+        <h4 id='fixed-painter-path'>
             路径
         </h4>
         <p>
@@ -307,7 +372,7 @@ var radialGradient = painter.createRadialGradient(cx, cy, r);
         <p class="warn">
             温馨提示：渐变的起点是圆心。
         </p>
-        <h4>
+        <h4 id='fixed-gradient-set'>
             设置与使用
         </h4>
         <p>
@@ -339,14 +404,14 @@ painter.config({
         <p>
             在说明具体的变换方法前，我们先来看二个与之相关的基本方法。
         </p>
-        <h4>保存</h4>
+        <h4 id="fixed-translate-save">保存</h4>
         <p>
             保存当前的绘图状态：
         </p>
         <pre q-code>
 painter.save();
             </pre>
-        <h4>
+        <h4 id="fixed-translate-restore">
             恢复
         </h4>
         <p>
@@ -358,7 +423,7 @@ painter.restore();
         <p>
             接着，我们说明几个具体的变换方法。
         </p>
-        <h4>
+        <h4 id="fixed-translate-translate">
             移动
         </h4>
         <p>
@@ -367,7 +432,7 @@ painter.restore();
         <pre q-code>
 painter.translate(dx, dy);
             </pre>
-        <h4>
+        <h4 id="fixed-translate-rotate">
             旋转
         </h4>
         <p>
@@ -376,7 +441,7 @@ painter.translate(dx, dy);
         <pre q-code>
 painter.rotate(deg);
             </pre>
-        <h4>
+        <h4 id="fixed-translate-scale">
             缩放
         </h4>
         <p>
@@ -393,6 +458,12 @@ painter.scale(sx[, sy]);
     export default {
         created() {
             changeActive('menu-2', 'painter');
+        },
+        methods: {
+            doScroll(fixedName) {
+                window.location.href = (window.location.href + "").replace(/\?fixed=.*$/, '') + "?fixed=" + fixedName;
+                fixedScroll();
+            }
         },
         mounted() {
             fixedScroll();

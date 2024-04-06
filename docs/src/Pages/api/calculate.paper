@@ -1,5 +1,55 @@
 <template>
-    <div class='api-view'>
+    <nav class='api-nav'>
+        <h2 @click='doScroll("dot")'>
+            二维坐标变换
+        </h2>
+        <h4 @click='doScroll("dot-dldbh")'>
+            独立的变换
+        </h4>
+        <h4 @click='doScroll("dot-bhdx")'>
+            变换对象
+        </h4>
+        <h2 @click='doScroll("matrix4")'>
+            矩阵坐标变换
+        </h2>
+        <h4 @click='doScroll("matrix4-basic")'>
+            基本运算
+        </h4>
+        <h4 @click='doScroll("matrix4-zbbh")'>
+            坐标变换
+        </h4>
+        <h2 @click='doScroll("interpolation")'>
+            曲线插值
+        </h2>
+        <h4 @click='doScroll("Cardinal")'>
+            Cardinal
+        </h4>
+        <h2 @click='doScroll("layout")'>
+            布局
+        </h2>
+        <h4 @click='doScroll("treeLayout")'>
+            树布局
+        </h4>
+        <h6 @click='doScroll("treeLayout-basic")'>
+            基本模型
+        </h6>
+        <h6 @click='doScroll("treeLayout-config")'>
+            配置模型
+        </h6>
+        <h4 @click='doScroll("pieLayout")'>
+            饼布局
+        </h4>
+        <h6 @click='doScroll("pieLayout-bcjs")'>
+            补充计算
+        </h6>
+        <h2 @click='doScroll("map")'>
+            地图坐标映射
+        </h2>
+        <h4 @click='doScroll("map-eoap")'>
+            等角斜方位投影
+        </h4>
+    </nav>
+    <div class='api-view api-content-view'>
         <p>
             绘图的时候难免要进行一些比较复杂的计算，这里根据使用场景不同，提供了几种常见的辅助计算。
         </p>
@@ -9,7 +59,7 @@
         <p>
             简单坐标变换分为二类：独立的变换和变换对象dot。
         </p>
-        <h4>
+        <h4 id='fixed-dot-dldbh'>
             独立的变换
         </h4>
         <p>
@@ -30,7 +80,7 @@ $$.move(ax, ay, d, x, y);
         <pre q-code>
 $$.scale(cx, cy, times, x, y);
             </pre>
-        <h4>
+        <h4 id='fixed-dot-bhdx'>
             变换对象
         </h4>
         <p>
@@ -81,7 +131,7 @@ var matrix4=$$.Matrix4(initMatrix4);
         <p>
             和前面的二维坐标变换不同的是，变换不是直接作用在具体的点上，而是先求解出一系列变换的变换矩阵，最后应用在具体点上。
         </p>
-        <h4>
+        <h4 id='fixed-matrix4-basic'>
             基本运算
         </h4>
         <p>
@@ -114,7 +164,7 @@ var position=matrix4.use(x, y, z, w);
         <p>
             矩阵的目的是对坐标进行变换，use方法返回齐次坐标(x, y, z, w)经过matrix4矩阵变换后的坐标值。其中z和w可以不传递，默认0和1，返回的坐标值是一个齐次坐标。
         </p>
-        <h4>
+        <h4 id='fixed-matrix4-zbbh'>
             坐标变换
         </h4>
         <p>
@@ -148,7 +198,7 @@ matrix4.rotate(deg, a1, b1, c1, a2, b2, c2);
         <p>
             给定若干个不连续的点，在这些点之间插入足够的点，来使得这些点连接起来是一个平滑的曲线。求解在何处插入新的点就是这里需要解决的问题。
         </p>
-        <h4>
+        <h4 id='fixed-Cardinal'>
             Cardinal
         </h4>
         <p>
@@ -327,7 +377,7 @@ pieLayout.drawer(function(data){ /*绘制*/ });
         <p>
             beginDeg和deg分别表示这个弧的起点弧度和跨越弧度，data是原始数据，index、key、value分别表示该项的序号、键和计算后的价值，percent表示该项占比（单位%）。
         </p>
-        <h6>
+        <h6 id='fixed-pieLayout-bcjs'>
             补充计算
         </h6>
         <p>
@@ -406,6 +456,12 @@ map.config({
     export default {
         created() {
             changeActive('menu-2', 'calculate');
+        },
+        methods: {
+            doScroll(fixedName) {
+                window.location.href = (window.location.href + "").replace(/\?fixed=.*$/, '') + "?fixed=" + fixedName;
+                fixedScroll();
+            }
         },
         mounted() {
             fixedScroll();

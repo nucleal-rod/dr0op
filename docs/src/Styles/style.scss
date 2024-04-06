@@ -5,3 +5,49 @@ html {
 body {
     font-size: .16rem;
 }
+
+// 接口查询页面菜单UI
+.api-nav {
+    width: 280px;
+    height: calc(100vh - 139px);
+    position: fixed;
+    overflow: auto;
+    padding-bottom: .3rem;
+
+    h2,
+    h4,
+    h6 {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    h4,
+    h6 {
+        font-weight: 400;
+        font-size: .14rem;
+        cursor: pointer;
+        margin: .07rem 0;
+        height: 1.2em;
+        color: #304455;
+    }
+
+    h2 {
+        padding: 10px 0;
+        font-size: .16rem;
+        cursor: pointer;
+    }
+
+    h4 {
+        margin-left: .1rem;
+    }
+
+
+    h6 {
+        margin-left: .2rem;
+    }
+}
+
+.api-content-view {
+    margin-left: 300px;
+}

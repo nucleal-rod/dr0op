@@ -1,5 +1,28 @@
 <template>
-    <div class='api-view'>
+    <nav class='api-nav'>
+        <h2 @click='doScroll("purpose")'>
+            关注的问题
+        </h2>
+        <h2 @click='doScroll("import")'>
+            如何引入?
+        </h2>
+        <h2 @click='doScroll("example")'>
+            一个简单的用例
+        </h2>
+        <h4 @click='doScroll("example-step1")'>
+            获取画笔
+        </h4>
+        <h4 @click='doScroll("example-step2")'>
+            配置
+        </h4>
+        <h4 @click='doScroll("example-step3")'>
+            绘图方法
+        </h4>
+        <h2 @click='doScroll("help")'>
+            获取帮助
+        </h2>
+    </nav>
+    <div class='api-view api-content-view'>
         <p>
             首先，让我们来了解一个这个库主要解决的问题是什么，如何使用以及问题反馈等基本信息。
         </p>
@@ -35,7 +58,7 @@ import $$ from "image2d";
         <p>
             作为入门，我们这里只是简单的说明一下如何绘图，具体的辅助方法和一些细节在文档有进行说明，或者你可以提issue进行交流，为了简化，这里不再赘述。
         </p>
-        <h6>
+        <h6 id='fixed-example-step1'>
             获取画笔
         </h6>
         <p>
@@ -50,7 +73,7 @@ var painter=$$("#painter").painter();
         <p>
             如何判断画笔的类型？如果结点是canvas获取的就是Canvas2D画笔，如果结点是svg获取的就是SVG画笔。
         </p>
-        <h6>
+        <h6 id='fixed-example-step2'>
             配置
         </h6>
         <p>
@@ -66,7 +89,7 @@ painter.config({
         <p>
             具体的配置选项请查看画笔一节。
         </p>
-        <h6>
+        <h6 id='fixed-example-step3'>
             绘图方法
         </h6>
         <p>
@@ -113,6 +136,12 @@ $$("canvas")
     export default {
         created() {
             changeActive('menu-2', 'how-to-use');
+        },
+        methods: {
+            doScroll(fixedName) {
+                window.location.href = (window.location.href + "").replace(/\?fixed=.*$/, '') + "?fixed=" + fixedName;
+                fixedScroll();
+            }
         },
         mounted() {
             fixedScroll();
