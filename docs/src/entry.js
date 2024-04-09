@@ -20,6 +20,22 @@ document.getElementById('root').innerHTML = "";
 import { loadRouter, goRouter } from './Service/router.config.js';
 QuickPaper.prototype.loadRouter = loadRouter; QuickPaper.prototype.goRouter = goRouter;
 
+// 监听浏览器点击了回退按钮
+if (window.addEventListener)
+    window.addEventListener("popstate", function (e) {
+        setTimeout(() => {
+
+            // 主动跳转的时候可以控制是否需要刷新
+            if (window.image2d_noRefresh) {
+                window.image2d_noRefresh = false;
+            } else {
+                window.location.reload();
+            }
+
+        });
+    }, false);
+
+
 //根对象
 window.quickPaper = new QuickPaper({
 
