@@ -74,6 +74,12 @@
         })
             .strokeArc(300, 300, 80, 100, 0, -Math.PI).appendTo(svg);
 
+        painter.bind('<path>').config({
+            "fillStyle": "red",
+            "arc-end-cap": "-round",
+            "arc-start-cap": "-round"
+        }).fillArc(500, 300, 50, 100, 1, 2).appendTo(svg);
+
     </script>
 </body>
 

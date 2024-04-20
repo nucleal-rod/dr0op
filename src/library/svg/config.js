@@ -77,18 +77,26 @@ export let initArc = function (painter, config, cx, cy, r1, r2, beginDeg, deg) {
         d +=
             // 横半径 竖半径 x轴偏移角度 0小弧/1大弧 0逆时针/1顺时针 终点x 终点y
             "A" + r1 + " " + r1 + " 0 " + f + " 1 " + endInnerX + " " + endInnerY;
+
         // 结尾
-        if (config["arc-end-cap"] != 'round')
-            d += "L" + endOuterX + " " + endOuterY;
-        else
+        if (config["arc-end-cap"] == 'round')
             d += "A" + r + " " + r + " " + " 0 1 0 " + endOuterX + " " + endOuterY;
-        d += "A" + r2 + " " + r2 + " 0 " + f + " 0 " + begOuterX + " " + begOuterY;
-        // 开头
-        if (config["arc-start-cap"] != 'round')
-            d += "L" + begInnerX + " " + begInnerY;
+        else if (config["arc-end-cap"] == '-round')
+            d += "A" + r + " " + r + " " + " 0 1 1 " + endOuterX + " " + endOuterY;
         else
+            d += "L" + endOuterX + " " + endOuterY;
+        d += "A" + r2 + " " + r2 + " 0 " + f + " 0 " + begOuterX + " " + begOuterY;
+
+        // 开头
+        if (config["arc-start-cap"] == 'round')
             d += "A" + r + " " + r + " " + " 0 1 0 " + begInnerX + " " + begInnerY;
+        else if (config["arc-start-cap"] == '-round')
+            d += "A" + r + " " + r + " " + " 0 1 1 " + begInnerX + " " + begInnerY;
+        else
+            d += "L" + begInnerX + " " + begInnerY;
+
         if (config["arc-start-cap"] == 'butt') d += "Z";
+
         painter.attr('d', d);
     });
     return painter;

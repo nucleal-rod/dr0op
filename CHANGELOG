@@ -276,3 +276,8 @@ v1.14.3:
     date:2021-08-16
     changes:
       -  修复一些小bug
+v1.15.0:
+    date:2021-09-28
+    changes:
+      -  针对IE9，虚线配置兼容
+      -  新增arc的round反方向-round配置

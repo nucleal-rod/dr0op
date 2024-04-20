@@ -1,6 +1,6 @@
 {
   "name": "image2d.doc",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "description": "🍇 前端绘图工具库image2d官方文档",
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --config webpack.dev.js",

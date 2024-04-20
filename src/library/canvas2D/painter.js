@@ -68,7 +68,11 @@ export default function (canvas, noHiddenWarn) {
          */
 
         if (key == 'lineDash') {
-            painter.setLineDash(value);
+            try {
+                painter.setLineDash(value);
+            } catch (e) {
+                console.error(e);
+            }
         }
 
         /**

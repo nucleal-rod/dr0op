@@ -7,14 +7,14 @@
 *
 * author 你好2007
 *
-* version 1.14.3
+* version 1.15.0
 *
 * build Thu Apr 11 2019
 *
 * Copyright hai2007 < https://hai2007.gitee.io/sweethome/ >
 * Released under the MIT license
 *
-* Date:Mon Aug 16 2021 14:14:18 GMT+0800 (中国标准时间)
+* Date:Tue Sep 28 2021 23:19:15 GMT+0800 (GMT+08:00)
 */
 
 "use strict";
@@ -2233,11 +2233,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             painter.arc(
             // (圆心x，圆心y，半径，开始角度，结束角度，true逆时针/false顺时针)
             cx, cy, r1, beginA, endA, false);
+
             // 结尾
-            if (config["arc-end-cap"] != 'round') painter.lineTo(endOuterX, endOuterY);else painter.arc((endInnerX + endOuterX) * 0.5, (endInnerY + endOuterY) * 0.5, r, endA - Math.PI, endA, true);
+            if (config["arc-end-cap"] == 'round') painter.arc((endInnerX + endOuterX) * 0.5, (endInnerY + endOuterY) * 0.5, r, endA - Math.PI, endA, true);else if (config["arc-end-cap"] == '-round') painter.arc((endInnerX + endOuterX) * 0.5, (endInnerY + endOuterY) * 0.5, r, endA - Math.PI, endA, false);else painter.lineTo(endOuterX, endOuterY);
+
             painter.arc(cx, cy, r2, endA, beginA, true);
+
             // 开头
-            if (config["arc-start-cap"] != 'round') painter.lineTo(begInnerX, begInnerY);else painter.arc((begInnerX + begOuterX) * 0.5, (begInnerY + begOuterY) * 0.5, r, beginA, beginA - Math.PI, true);
+            if (config["arc-start-cap"] == 'round') painter.arc((begInnerX + begOuterX) * 0.5, (begInnerY + begOuterY) * 0.5, r, beginA, beginA - Math.PI, true);else if (config["arc-start-cap"] == '-round') painter.arc((begInnerX + begOuterX) * 0.5, (begInnerY + begOuterY) * 0.5, r, beginA, beginA - Math.PI, false);else painter.lineTo(begInnerX, begInnerY);
         });
         if (config["arc-start-cap"] == 'butt') painter.closePath();
         return painter;
@@ -2354,7 +2357,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
              */
 
             if (key == 'lineDash') {
-                painter.setLineDash(value);
+                try {
+                    painter.setLineDash(value);
+                } catch (e) {
+                    console.error(e);
+                }
             }
 
             /**
@@ -2640,12 +2647,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             d +=
             // 横半径 竖半径 x轴偏移角度 0小弧/1大弧 0逆时针/1顺时针 终点x 终点y
             "A" + r1 + " " + r1 + " 0 " + f + " 1 " + endInnerX + " " + endInnerY;
+
             // 结尾
-            if (config["arc-end-cap"] != 'round') d += "L" + endOuterX + " " + endOuterY;else d += "A" + r + " " + r + " " + " 0 1 0 " + endOuterX + " " + endOuterY;
+            if (config["arc-end-cap"] == 'round') d += "A" + r + " " + r + " " + " 0 1 0 " + endOuterX + " " + endOuterY;else if (config["arc-end-cap"] == '-round') d += "A" + r + " " + r + " " + " 0 1 1 " + endOuterX + " " + endOuterY;else d += "L" + endOuterX + " " + endOuterY;
             d += "A" + r2 + " " + r2 + " 0 " + f + " 0 " + begOuterX + " " + begOuterY;
+
             // 开头
-            if (config["arc-start-cap"] != 'round') d += "L" + begInnerX + " " + begInnerY;else d += "A" + r + " " + r + " " + " 0 1 0 " + begInnerX + " " + begInnerY;
+            if (config["arc-start-cap"] == 'round') d += "A" + r + " " + r + " " + " 0 1 0 " + begInnerX + " " + begInnerY;else if (config["arc-start-cap"] == '-round') d += "A" + r + " " + r + " " + " 0 1 1 " + begInnerX + " " + begInnerY;else d += "L" + begInnerX + " " + begInnerY;
+
             if (config["arc-start-cap"] == 'butt') d += "Z";
+
             painter.attr('d', d);
         });
         return painter;

@@ -39,18 +39,18 @@ interface painter_config {
     "font-family": string,
 
     /**
-     * 圆弧开始端闭合方式，默认"butt"直线闭合（还有"round"圆帽闭合）
+     * 圆弧开始端闭合方式，默认"butt"直线闭合（还有"round"圆帽闭合,"-round"反圆帽闭合）
      */
     "arc-start-cap": string,
 
     /**
-     * 圆弧结束端闭合方式，默认"butt"直线闭合（还有"round"圆帽闭合）
+     * 圆弧结束端闭合方式，默认"butt"直线闭合（还有"round"圆帽闭合,"-round"反圆帽闭合）
      */
     "arc-end-cap": string,
 
     /**
      * 设置线条虚线，默认为[]表示使用实线绘制
-     * 
+     *
      * 值应该是一个数组，格式：[实线长，虚线长，实线长 ...]，数组长度任意，会自动循环
      */
     lineDash: string
@@ -87,11 +87,11 @@ export interface painter {
 
     /**
      * 【canvas画笔独有】把图像、画布或视频绘制到画布的指定位置上
-     * 
+     *
      * (img, x, y):在画布上定位图像。
-     * 
+     *
      * (img, x, y, width, height):在画布上定位图像，并规定图像的宽度和高度。
-     * 
+     *
      * (img, sx, sy, swidth, sheight, x, y, width, height):剪切图像，并在画布上定位被剪切的部分。
      */
     drawImage(): painter,
@@ -311,7 +311,7 @@ export interface painter {
      * @param y1 渐变的起点y坐标
      * @param x2 渐变的终点x坐标
      * @param y2 渐变的终点y坐标
-     * 
+     *
      * 特别注意：canvas画笔上述参数的单位是px，svg画笔上述参数是%
      */
     createLinearGradient(x1: number, y1: number, x2: number, y2: number): gradient,
@@ -321,7 +321,7 @@ export interface painter {
      * @param cx 渐变的起点x坐标
      * @param cy 渐变的起点y坐标
      * @param r 渐变半径
-     * 
+     *
      * 特别注意：canvas画笔上述参数的单位是px，svg画笔上述参数是%
      */
     createRadialGradient(cx: number, cy: number, r: number): gradient,
