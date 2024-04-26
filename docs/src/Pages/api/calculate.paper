@@ -57,7 +57,7 @@
             二维坐标变换
         </h2>
         <p>
-            简单坐标变换分为二类：独立的变换和变换对象dot。
+            简单坐标变换分为两类：独立的变换和变换对象dot。
         </p>
         <h4 id='fixed-dot-dldbh'>
             独立的变换
@@ -147,7 +147,7 @@ var val=matrix4.value();
 (16) [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
             </pre>
         <p>
-            二个矩阵相乘：
+            两个矩阵相乘：
         </p>
         <pre q-code>
 matrix4.multiply(newMatrix4[, flag]);

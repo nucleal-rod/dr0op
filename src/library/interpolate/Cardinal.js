@@ -1,10 +1,10 @@
 /**
  * Cardinal三次插值
  * ----------------------------
- * Hermite拟合的计算是，确定二个点和二个点的斜率
+ * Hermite拟合的计算是，确定两个点和两个点的斜率
  * 用一个y=ax(3)+bx(2)+cx+d的三次多项式来求解
  * 而Cardinal是建立在此基础上
- * 给定需要拟合的二个点和第一个点的前一个点+最后一个点的后一个点
+ * 给定需要拟合的两个点和第一个点的前一个点+最后一个点的后一个点
  * 第一个点的斜率由第一个点的前一个点和第二个点的斜率确定
  * 第二个点的斜率由第一个点和第二个点的后一个点的斜率确定
  */
@@ -54,7 +54,7 @@ export default function (config) {
 
     // 设置点的位置
     // 参数格式：[[x,y],[x,y],...]
-    // 至少二个点
+    // 至少两个点
     cardinal.setP = function (points) {
 
         HS = {
@@ -72,7 +72,7 @@ export default function (config) {
             temp = flag < points.length - 1 ?
                 (points[flag + 1][1] - points[flag - 1][1]) / (points[flag + 1][0] - points[flag - 1][0]) :
                 (points[flag][1] - points[flag - 1][1]) / (points[flag][0] - points[flag - 1][0]);
-            // 求解二个点直接的拟合方程
+            // 求解两个点之间的拟合方程
             // 第一个点的前一个点直接取第一个点
             // 最后一个点的后一个点直接取最后一个点
             HS.h[flag - 1] = hermite({

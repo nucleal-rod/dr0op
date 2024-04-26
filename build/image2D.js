@@ -14,7 +14,7 @@
 * Copyright hai2007 < https://hai2007.gitee.io/sweethome/ >
 * Released under the MIT license
 *
-* Date:Tue Sep 28 2021 23:19:15 GMT+0800 (GMT+08:00)
+* Date:Tue Sep 28 2021 23:57:25 GMT+0800 (GMT+08:00)
 */
 
 "use strict";
@@ -1434,10 +1434,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     /**
      * Cardinal三次插值
      * ----------------------------
-     * Hermite拟合的计算是，确定二个点和二个点的斜率
+     * Hermite拟合的计算是，确定两个点和两个点的斜率
      * 用一个y=ax(3)+bx(2)+cx+d的三次多项式来求解
      * 而Cardinal是建立在此基础上
-     * 给定需要拟合的二个点和第一个点的前一个点+最后一个点的后一个点
+     * 给定需要拟合的两个点和第一个点的前一个点+最后一个点的后一个点
      * 第一个点的斜率由第一个点的前一个点和第二个点的斜率确定
      * 第二个点的斜率由第一个点和第二个点的后一个点的斜率确定
      */
@@ -1482,7 +1482,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         // 设置点的位置
         // 参数格式：[[x,y],[x,y],...]
-        // 至少二个点
+        // 至少两个点
         cardinal.setP = function (points) {
 
             HS = {
@@ -1498,7 +1498,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 HS.x[flag] = points[flag][0];
                 // 求点斜率
                 temp = flag < points.length - 1 ? (points[flag + 1][1] - points[flag - 1][1]) / (points[flag + 1][0] - points[flag - 1][0]) : (points[flag][1] - points[flag - 1][1]) / (points[flag][0] - points[flag - 1][0]);
-                // 求解二个点直接的拟合方程
+                // 求解两个点之间的拟合方程
                 // 第一个点的前一个点直接取第一个点
                 // 最后一个点的后一个点直接取最后一个点
                 HS.h[flag - 1] = hermite({
@@ -2327,7 +2327,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         canvas.style.width = width + "px";
         canvas.style.height = height + "px";
 
-        // 设置画布大小（画布大小设置为显示的二倍，使得显示的时候更加清晰）
+        // 设置画布大小（画布大小设置为显示的两倍，使得显示的时候更加清晰）
         canvas.setAttribute('width', width * 2);
         canvas.setAttribute('height', height * 2);
 

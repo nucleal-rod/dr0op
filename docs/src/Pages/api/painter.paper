@@ -84,7 +84,7 @@ var painter=imageObject.painter();
 painter.config();
             </pre>
         <p>
-            考虑到属性设置可能有多个或单个，为了方便，提供二种参数类型：
+            考虑到属性设置可能有多个或单个，为了方便，提供两种参数类型：
         </p>
         <ul>
             <li>(json):一次配置多个属性，键值对的方式。</li>
@@ -322,7 +322,7 @@ painter.quadraticCurveTo(cpx, cpy, x, y);
 painter.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
             </pre>
         <p class="warn">
-            有二个控制点p(cp1x, cp1y)和p(cp2x, cp2y),画笔当前的位置和p(x, y)分别是起点和终点。
+            有两个控制点p(cp1x, cp1y)和p(cp2x, cp2y),画笔当前的位置和p(x, y)分别是起点和终点。
         </p>
         <p>
             把当前路径包裹的区域填充颜色：
@@ -402,7 +402,7 @@ painter.config({
             这里的变换指的是画笔相对画布的变换，和坐标变换不一样，前者改变的是画笔特性，或者是求解点坐标的方法。
         </p>
         <p>
-            在说明具体的变换方法前，我们先来看二个与之相关的基本方法。
+            在说明具体的变换方法前，我们先来看两个与之相关的基本方法。
         </p>
         <h4 id="fixed-translate-save">保存</h4>
         <p>

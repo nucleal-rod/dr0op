@@ -39,7 +39,7 @@
 var imageObject=$$(selector[, context]);
             </pre>
         <p>
-            如上所示，通过执行$$或image2D方法即可获取一个结点对象，我们可以传递二个参数来确定当前结点对象维护的结点是哪些。
+            如上所示，通过执行$$或image2D方法即可获取一个结点对象，我们可以传递两个参数来确定当前结点对象维护的结点是哪些。
         </p>
         <p class="warn">
             结点对象维护了一些结点，调用结点对象上的方法，就是对维护的这些结点进行操作。
@@ -73,10 +73,10 @@ var imageObject=$$(selector[, context]);
 var new_imageObject=imageObject.filter(filterback);
             </pre>
         <p>
-            返回新的结点对象，不会修改原来的结点对象。其中filterback叫做筛选函数，有二个形参，分别是当前面对结点序号和维护了当前面对结点的结点对象，通过返回true或false来判断是否把当前面对的结点加入新创建的结点对象中。
+            返回新的结点对象，不会修改原来的结点对象。其中filterback叫做筛选函数，有两个形参，分别是当前面对结点序号和维护了当前面对结点的结点对象，通过返回true或false来判断是否把当前面对的结点加入新创建的结点对象中。
         </p>
         <p class="warn">
-            特别注意：第二个参数context除了可以是dom结点外，还有二个特殊的字符串可以作为参数"html"（或"HTML"）和"svg"（或"SVG"），如果传递这二个字符串中的某个，表示把第一个参数selector作为模板字符串生成新的结点（前者生成html结点，后者生成svg结点）。
+            特别注意：第二个参数context除了可以是dom结点外，还有两个特殊的字符串可以作为参数"html"（或"HTML"）和"svg"（或"SVG"），如果传递这两个字符串中的某个，表示把第一个参数selector作为模板字符串生成新的结点（前者生成html结点，后者生成svg结点）。
         </p>
         <h2 id='fixed-modify'>
             编辑
@@ -88,7 +88,7 @@ var new_imageObject=imageObject.filter(filterback);
 imageObject.appendTo(target[, context]);
             </pre>
         <p class="warn">
-            target是一个合法的选择器即可，context是一个结点（当然，额外有二个字符串"html"和"svg"可以作为参数，和上面一样），表示目标结点查找上下文，可选，默认全局查找，下同
+            target是一个合法的选择器即可，context是一个结点（当然，额外有两个字符串"html"和"svg"可以作为参数，和上面一样），表示目标结点查找上下文，可选，默认全局查找，下同
         </p>
         <p>
             把当前维护的结点加到目标结点内部的开头：

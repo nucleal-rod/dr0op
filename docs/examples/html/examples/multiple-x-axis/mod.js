@@ -19,7 +19,7 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
         // 获取绘制背景的画笔
         var bgPainter = layer.painter('background-image');
 
-        // 绘制二条水平刻度尺
+        // 绘制两条水平刻度尺
         $scope.rulerX(bgPainter, data[0].color, data[0].date, 60, -1);
         $scope.rulerX(bgPainter, data[1].color, data[1].date, 472.5, 1);
 
@@ -49,10 +49,10 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
     /**
      * 绘制X坐标轴
      * @param {image2D.painter} painter 画笔
-     * @param {string} color 坐标轴主题颜色 
-     * @param {Array<string>} texts 刻度文字 
-     * @param {number} y 坐标轴Y坐标 
-     * @param {-1|1} help 标记文字在坐标轴上面还是下面 
+     * @param {string} color 坐标轴主题颜色
+     * @param {Array<string>} texts 刻度文字
+     * @param {number} y 坐标轴Y坐标
+     * @param {-1|1} help 标记文字在坐标轴上面还是下面
      */
     $scope.rulerX = function (painter, color, texts, y, help) {
 
@@ -89,7 +89,7 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
 
     /**
      * 绘制Y坐标轴
-     * @param {image2D.painter} painter 画笔 
+     * @param {image2D.painter} painter 画笔
      */
     $scope.rulerY = function (painter) {
 
@@ -125,10 +125,10 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
 
     /**
      * 绘制标题
-     * @param {image2D.painter} painter 画笔 
-     * @param {number} x 标题起点X坐标 
+     * @param {image2D.painter} painter 画笔
+     * @param {number} x 标题起点X坐标
      * @param {string} color 标题颜色
-     * @param {string} title 标题 
+     * @param {string} title 标题
      */
     $scope.drawerTitle = function (painter, x, color, title) {
 
@@ -151,9 +151,9 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
 
     /**
      * 把2015或2016的数据绘制到页面
-     * @param {image2D.layer} layer 图层管理对象 
-     * @param {image2D.painter} painter 画笔 
-     * @param {any} data 数据 
+     * @param {image2D.layer} layer 图层管理对象
+     * @param {image2D.painter} painter 画笔
+     * @param {any} data 数据
      */
     $scope.lineData = function (layer, painter, data) {
 
@@ -172,7 +172,7 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
         var points2015 = toPoints(data[0].data);
         var points2016 = toPoints(data[1].data);
 
-        // 根据点获取二条回归直线
+        // 根据点获取两条回归直线
         var line2015 = $$.cardinal().setP(points2015);
         var line2016 = $$.cardinal().setP(points2016);
 
@@ -219,7 +219,7 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
      * @param {image2D.painter} painter 画笔
      * @param {number} begX 开始X坐标
      * @param {number} endX 结束X坐标
-     * @param {function} lineFun 曲线插值函数 
+     * @param {function} lineFun 曲线插值函数
      */
     $scope.lineImage = function (painter, begX, endX, lineFun) {
 

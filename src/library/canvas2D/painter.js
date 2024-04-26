@@ -38,7 +38,7 @@ export default function (canvas, noHiddenWarn) {
     canvas.style.width = width + "px";
     canvas.style.height = height + "px";
 
-    // 设置画布大小（画布大小设置为显示的二倍，使得显示的时候更加清晰）
+    // 设置画布大小（画布大小设置为显示的两倍，使得显示的时候更加清晰）
     canvas.setAttribute('width', width * 2);
     canvas.setAttribute('height', height * 2);
 

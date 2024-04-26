@@ -638,7 +638,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     // 判断第一种是否可行的方法就是：如果第一种计算后确定的孩子上边缘不对导致孩子和孩子的前兄弟重合就是可行的
                     if (pTop - 1 < beforeDis[deep - 1])
                         // 必须保证父亲结点和父亲的前一个兄弟保存1的距离，至少
-                        // 添加的新结点top值的第二种求法：根据孩子取孩子结点的中心top
+                        // 添加的新结点top值的第两种求法：根据孩子取孩子结点的中心top
                         alltreedata[pNode.id].top = beforeDis[deep - 1] + 1 - (alltreedata[pNode.pid].children.length - 1) * 0.5;
                 } else {
 
@@ -1070,14 +1070,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /**
      * 针对任意射线(a1,b1,c1)->(a2,b2,c2)
-     * 计算出二个变换矩阵
+     * 计算出两个变换矩阵
      * 分别为：任意射线变成OZ轴变换矩阵 + OZ轴变回原来的射线的变换矩阵
      */
     function _transform(a1, b1, c1, a2, b2, c2) {
 
         if (typeof a1 === 'number' && typeof b1 === 'number') {
 
-            // 如果设置二个点
+            // 如果设置两个点
             // 表示二维上围绕某个点旋转
             if (typeof c1 !== 'number') {
                 c1 = 0;a2 = a1;b2 = b1;c2 = 1;
@@ -1111,7 +1111,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
     }
 
-    // 二个4x4矩阵相乘
+    // 两个4x4矩阵相乘
     // 或矩阵和齐次坐标相乘
     var _multiply = function _multiply(matrix4, param) {
         var newParam = [];
@@ -1362,7 +1362,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
          * @param {Number} y1
          * @param {Number} x2 右边点的位置
          * @param {Number} y2
-         * @param {Number} s1 二个点的斜率
+         * @param {Number} s1 两个点的斜率
          * @param {Number} s2
          */
         hermite.setP = function (x1, y1, x2, y2, s1, s2) {
@@ -1434,10 +1434,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     /**
      * Cardinal三次插值
      * ----------------------------
-     * Hermite拟合的计算是，确定二个点和二个点的斜率
+     * Hermite拟合的计算是，确定两个点和两个点的斜率
      * 用一个y=ax(3)+bx(2)+cx+d的三次多项式来求解
      * 而Cardinal是建立在此基础上
-     * 给定需要拟合的二个点和第一个点的前一个点+最后一个点的后一个点
+     * 给定需要拟合的两个点和第一个点的前一个点+最后一个点的后一个点
      * 第一个点的斜率由第一个点的前一个点和第二个点的斜率确定
      * 第二个点的斜率由第一个点和第二个点的后一个点的斜率确定
      */
@@ -1482,7 +1482,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         // 设置点的位置
         // 参数格式：[[x,y],[x,y],...]
-        // 至少二个点
+        // 至少两个点
         cardinal.setP = function (points) {
 
             HS = {
@@ -1498,7 +1498,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 HS.x[flag] = points[flag][0];
                 // 求点斜率
                 temp = flag < points.length - 1 ? (points[flag + 1][1] - points[flag - 1][1]) / (points[flag + 1][0] - points[flag - 1][0]) : (points[flag][1] - points[flag - 1][1]) / (points[flag][0] - points[flag - 1][0]);
-                // 求解二个点直接的拟合方程
+                // 求解两个点直接的拟合方程
                 // 第一个点的前一个点直接取第一个点
                 // 最后一个点的后一个点直接取最后一个点
                 HS.h[flag - 1] = hermite({
@@ -1645,7 +1645,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /**
      * 阻止冒泡
-     * @param {Event} event 
+     * @param {Event} event
      */
     var stopPropagation = function stopPropagation(event) {
         event = event || window.event;
@@ -1660,7 +1660,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /**
      * 阻止默认事件
-     * @param {Event} event 
+     * @param {Event} event
      */
     var preventDefault = function preventDefault(event) {
         event = event || window.event;
@@ -2347,7 +2347,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         canvas.style.width = width + "px";
         canvas.style.height = height + "px";
 
-        // 设置画布大小（画布大小设置为显示的二倍，使得显示的时候更加清晰）
+        // 设置画布大小（画布大小设置为显示的两倍，使得显示的时候更加清晰）
         canvas.setAttribute('width', width * 2);
         canvas.setAttribute('height', height * 2);
 
@@ -2781,7 +2781,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             "font-size": "16",
             "font-family": "sans-serif",
 
-            // arc二端闭合方式['butt':直线闭合,'round':圆帽闭合]
+            // arc两端闭合方式['butt':直线闭合,'round':圆帽闭合]
             "arc-start-cap": "butt",
             "arc-end-cap": "butt",
 

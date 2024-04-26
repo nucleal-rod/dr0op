@@ -13,7 +13,7 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
             .config('fillStyle', '#ffe1b1').bind("<circle>").appendTo().fillCircle(250, 250, 220)
             .config('fillStyle', '#ffffff').bind("<circle>").appendTo().fillCircle(250, 250, 180);
 
-        // 准备好用来绘制动画wave的二个标签和进度弧
+        // 准备好用来绘制动画wave的两个标签和进度弧
         var innerWave = $$('<path>').appendTo('#palette');
         var outerWave = $$('<path>').appendTo('#palette');
         var arcNode = $$('<path>').appendTo('#palette');
@@ -76,7 +76,7 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
     };
 
     /**
-     * 绘制波浪（完整的二条）
+     * 绘制波浪（完整的两条）
      * @param {image2D.painter} painter image2D画笔
      * @param {number} rate 比率
      * @param {number} deep 动画进度
@@ -104,7 +104,7 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
      * @param {image2D.painter} painter image2D画笔
      * @param {number} rate 比率
      * @param {number} deep 动画进度
-     * @param {number} help wave类型，去1或-1，分二种：开始上波和开始下波
+     * @param {number} help wave类型，去1或-1，分两种：开始上波和开始下波
      */
     $scope.drawerWave = function (painter, rate, deep, help) {
 
