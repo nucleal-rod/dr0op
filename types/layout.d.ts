@@ -3,42 +3,42 @@ export interface treeLayout_options {
     /**
      * 配置树图的类型（默认原始模型，会忽略下列全部设置）
      */
-    type: "LR" | "RL" | "BT" | "TB" | "circle",
+    type?: "LR" | "RL" | "BT" | "TB" | "circle",
 
     /**
      * 设置树图的宽（如果类型是LR|RL|BT|TB需要设置）
      */
-    width: number,
+    width?: number,
 
     /**
      * 设置树图的高（如果类型是LR|RL|BT|TB需要设置）
      */
-    height: number,
+    height?: number,
 
     /**
      * 设置圆心x（如果类型是circle需要设置）
      */
-    cx: number,
+    cx?: number,
 
     /**
      * 设置圆心y（如果类型是circle需要设置）
      */
-    cy: number,
+    cy?: number,
 
     /**
      * 设置树图半径（如果类型是circle需要设置）
      */
-    radius: number,
+    radius?: number,
 
     /**
      * 开始弧度（可选，如果类型是circle设置该参数有效）
      */
-    "begin-deg": number,
+    "begin-deg"?: number,
 
     /**
      * 跨越弧度（可选，如果类型是circle设置该参数有效）
      */
-    deg: number
+    deg?: number
 }
 
 /**

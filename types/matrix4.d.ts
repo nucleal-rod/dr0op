@@ -15,7 +15,7 @@ export interface matrix4 {
      * @param newMatrix4 矩阵对象
      * @param flag 可选，默认false，表示左乘，即newMatrix4 × matrix4，如果设置true，表示右乘
      */
-    multiply(newMatrix4: matrix4, flag: boolean): matrix4,
+    multiply(newMatrix4: matrix4, flag?: boolean): matrix4,
 
     /**
      * 把变换矩阵作用在具体的点上
@@ -35,6 +35,6 @@ export interface matrix4 {
     /**
      * 围绕射线(a1, b1, c1) -> (a2, b2, c2)旋转deg度（方向由右手法则确定）
      */
-    rotate(deg: number, a1: number, b1: number, c1: number, a2: number, b2: number, c2: number): matrix4,
+    rotate(deg?: number, a1?: number, b1?: number, c1?: number, a2?: number, b2?: number, c2?: number): matrix4,
 
 }

@@ -14,7 +14,7 @@ export interface map_options {
     /**
      * 设置旋转中心，你可以把你绘制的部分的中心的经纬度设置为中心，默认[107, 36]
      */
-    center: [longitude: number, latitude: number]
+    center: [longitude?: number, latitude?: number]
 }
 
 /**
@@ -23,8 +23,8 @@ export interface map_options {
 export interface map {
 
     /**
-     * 配置地图投影 
+     * 配置地图投影
      */
-    config(config: map_options): map
+    config(config?: map_options): map
 
 }

@@ -11,7 +11,7 @@ import { map_options, map } from './map.d';
  * @param selector 选择器
  * @param context 可选，查找上下文
  */
-declare function image2D(selector: Function | Element | string | image2D_Object | Array<Element | image2D_Object>, context: Element): image2D_Object;
+declare function image2D(selector: Function | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: Element): image2D_Object;
 
 export default image2D;
 
@@ -61,7 +61,7 @@ image2D.dot = (init: {
  * 返回一个矩阵对象
  * @param initMatrix4 一个初始化矩阵或默认采用单位矩阵E初始化
  */
-image2D.Matrix4 = (initMatrix4): matrix4 => { };
+image2D.Matrix4 = (initMatrix4?:any): matrix4 => { };
 
 // 曲线插值
 
@@ -75,26 +75,26 @@ image2D.cardinal = (): cardinal => { };
 /**
  *  树布局
  */
-image2D.treeLayout = (config: treeLayout_options): treeLayout => { };
+image2D.treeLayout = (config?: treeLayout_options): treeLayout => { };
 
 /**
  * 饼布局
  */
-image2D.pieLayout = (config: pieLayout_options): pieLayout => { };
+image2D.pieLayout = (config?: pieLayout_options): pieLayout => { };
 
 // 地图坐标映射
 
 /**
  * 获取地图投影对象
  */
-image2D.map = (config: map_options): map => { };
+image2D.map = (config?: map_options): map => { };
 
 // 一些补充
 
 /**
  * 动画方法
  */
-image2D.animation = (doit: Function, speeds: number, endBack: Function, timing): Function => { };
+image2D.animation = (doit: Function, speeds?: number, endBack?: Function, timing): Function => { };
 
 /**
  * 定任意一个合法的css颜色字符串，把颜色统一转变成rgba格式，返回一个数组[r,g,b,a]
@@ -114,4 +114,4 @@ image2D.getLoopColors = (num: number, alpha?: number): Array<string> => { };
 /**
  * 刻度尺辅助计算
  */
-image2D.ruler = (maxValue: number, minValue: number, number: number): ruler => { };
+image2D.ruler = (maxValue: number, minValue: number, number?: number): ruler => { };

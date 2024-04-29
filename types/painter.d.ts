@@ -83,7 +83,7 @@ export interface painter {
      * @param width 可选，区域的宽
      * @param height 可选，区域的高
      */
-    clearRect(x: number, y: number, width: number, height: number): painter,
+    clearRect(x?: number, y?: number, width?: number, height?: number): painter,
 
     /**
      * 【canvas画笔独有】把图像、画布或视频绘制到画布的指定位置上
@@ -108,25 +108,25 @@ export interface painter {
      * 【svg画笔独有】把当前维护的结点加到目标结点内部的结尾
      * @param selector 可选，选择器，查找上下文固定为当前svg画布
      */
-    appendTo(selector: Function | Element | string | image2D_Object | Array<Element | image2D_Object>): painter,
+    appendTo(selector?: Function | Element | string | image2D_Object | Array<Element | image2D_Object>): painter,
 
     /**
      * 【svg画笔独有】把当前维护的结点加到目标结点内部的开头
      * @param selector 可选，选择器，查找上下文固定为当前svg画布
      */
-    prependTo(selector: Function | Element | string | image2D_Object | Array<Element | image2D_Object>): painter,
+    prependTo(selector?: Function | Element | string | image2D_Object | Array<Element | image2D_Object>): painter,
 
     /**
      * 【svg画笔独有】把当前维护的结点加到目标结点之后
      * @param selector 可选，选择器，查找上下文固定为当前svg画布
      */
-    afterTo(selector: Function | Element | string | image2D_Object | Array<Element | image2D_Object>): painter,
+    afterTo(selector?: Function | Element | string | image2D_Object | Array<Element | image2D_Object>): painter,
 
     /**
      * 【svg画笔独有】把当前维护的结点加到目标结点之前
      * @param selector 可选，选择器，查找上下文固定为当前svg画布
      */
-    beforeTo(selector: Function | Element | string | image2D_Object | Array<Element | image2D_Object>): painter,
+    beforeTo(selector?: Function | Element | string | image2D_Object | Array<Element | image2D_Object>): painter,
 
     // 画笔上的绘图方法
 
@@ -137,7 +137,7 @@ export interface painter {
      * @param y 绘制位置的y坐标
      * @param deg 可选，文字旋转角度
      */
-    fillText(text: any, x: number, y: number, deg: number): painter,
+    fillText(text: any, x: number, y: number, deg?: number): painter,
 
     /**
      * 绘制一个空心文字
@@ -146,7 +146,7 @@ export interface painter {
      * @param y 绘制位置的y坐标
      * @param deg 可选，文字旋转角度
      */
-    strokeText(text: any, x: number, y: number, deg: number): painter,
+    strokeText(text: any, x: number, y: number, deg?: number): painter,
 
     /**
      * 绘制一个空实心文字
@@ -155,7 +155,7 @@ export interface painter {
      * @param y 绘制位置的y坐标
      * @param deg 可选，文字旋转角度
      */
-    fullText(text: any, x: number, y: number, deg: number): painter,
+    fullText(text: any, x: number, y: number, deg?: number): painter,
 
     /**
      * 绘制一个实心的圆弧

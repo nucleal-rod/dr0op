@@ -281,3 +281,7 @@ v1.15.0:
     changes:
       -  针对IE9，虚线配置兼容
       -  新增arc的round反方向-round配置
+v1.16.0:
+    date:2021-10-14
+    changes:
+      -  types下的部分参数修改为可选（兼容ts文件使用）
