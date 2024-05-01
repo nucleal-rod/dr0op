@@ -7,14 +7,14 @@
 *
 * author 你好2007
 *
-* version 1.16.0
+* version 1.16.1
 *
 * build Thu Apr 11 2019
 *
 * Copyright hai2007 < https://hai2007.gitee.io/sweethome/ >
 * Released under the MIT license
 *
-* Date:Thu Oct 14 2021 10:20:50 GMT+0800 (中国标准时间)
+* Date:Sun Nov 07 2021 18:26:14 GMT+0800 (GMT+08:00)
 */
 
 "use strict";
@@ -1822,7 +1822,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         maxValue - minValue);
 
         // 求解出 -100 ~ 100 的最佳间距值 后直接转换原来的倍数
-        var distance = Math.ceil((maxValue - minValue) * times100 / num) / times100;
+        var distance = +(Math.ceil((maxValue - minValue) * times100 / num) / times100).toFixed(dotNum);
+
+        if (distance <= 0) return [minValue, maxValue];
 
         // 最小值，也就是起点
         var begin = Math.floor(minValue / distance) * distance;
