@@ -461,6 +461,7 @@ painter.scale(sx[, sy]);
         },
         methods: {
             doScroll(fixedName) {
+                window.image2d_noRefresh = true;
                 window.location.href = (window.location.href + "").replace(/\?fixed=.*$/, '') + "?fixed=" + fixedName;
                 fixedScroll();
             }

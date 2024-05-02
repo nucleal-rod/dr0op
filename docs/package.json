@@ -1,14 +1,14 @@
 {
   "name": "image2d.doc",
-  "version": "7.2.0",
+  "version": "7.3.0",
   "description": "🍇 前端绘图工具库image2d官方文档",
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --config webpack.dev.js",
-    "clean": "hai2007_nodejs -d ./dist",
+    "clean": "nodejs -d ./dist",
     "release": "npm run clean && npm run prod",
     "prod": "node_modules/.bin/webpack --config webpack.prod.js",
     "start": "npm install && npm run dev",
-    "server": "hai2007_nodejs -s 20000"
+    "server": "nodejs -s 20000"
   },
   "keywords": [
     "image2d",
@@ -25,7 +25,7 @@
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@hai2007/algorithm": "^0.6.2",
-    "@hai2007/nodejs": "^0.1.0",
+    "@hai2007/nodejs": "^2.0.1",
     "autoprefixer": "^9.7.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^2.1.1",

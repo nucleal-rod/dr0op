@@ -7,42 +7,59 @@
                     首页
                 </li>
                 <li title='接口文档' @click='openRouter("api")' class='menu-1 api'>
-                    文档
+                    接口文档
                 </li>
                 <li title='使用教程' @click='openRouter("course")' class='menu-1 course'>
                     教程
                 </li>
-                <li title='一些绘图的例子'
-                    onclick="window.location.href='./examples/index.html'">
-                    用例
+                <li title='一些绘图的例子' onclick="window.location.href='./examples/index.html'" class='new-open'>
+                    演示用例
+                </li>
+                <li class='select'>
+                    <i>
+                        更多内容
+                    </i>
+                    <div>
+                        <h2>
+                            交流
+                        </h2>
+                        <a href="https://github.com/hai2007/image2D/issues" title='任何疑惑都可以在这里提问'
+                            target="_blank">参与讨论</a>
+                        <a href="https://clunch-contrib.github.io/community/" title='你可以获得更多关于绘图的相关信息'
+                            target="_blank">开发者社区</a>
+                        <h2>
+                            相关项目
+                        </h2>
+                        <a href="https://hai2007.gitee.io/clunch/" title='🎨 渐进的前端交互式图形框架' target="_blank">clunch.js</a>
+                        <a href="https://hai2007.gitee.io/image3d/"
+                            title='🍊 使用webGL绘制三维图片。📊📈🎉Drawing three-dimensional images using webGL.'
+                            target="_blank">image3D.js</a>
+                        <a href="https://hai2007.github.io/cross-end-canvas/"
+                            title='🦎 🎨 提供跨端的canvas画笔，保持一致的绘图方法和效果，包括普通的web端、uniapp框架、微信小程序等小程序等。'
+                            target="_blank">Cross End Canvas</a>
+                        <h2>
+                            底层依赖
+                        </h2>
+                        <a href="https://hai2007.github.io/algorithm.js/" title="🔪 一些前端常用的算法实现合集。" target="_blank">
+                            @hai2007/algorithm
+                        </a>
+                        <a href="https://hai2007.github.io/tool.js/" title="💡 前端常用的工具类方法汇总。" target="_blank">
+                            @hai2007/tool
+                        </a>
+                    </div>
                 </li>
                 <li title='汇集的一些常用答疑' @click='openRouter("QA")' class='menu-1 QA'>
-                    答疑Q&A
-                </li>
-                <li class="line"></li>
-                <li title='友情链接：自由开源 JavaScript 3D绘图'
-                    onclick="window.location.href='https://hai2007.gitee.io/image3d/'">
-                    3D画笔
-                </li>
-                <li title='友情链接：更友好的绘图框架'
-                    onclick="window.location.href='https://hai2007.gitee.io/clunch/'">
-                    绘图框架
-                </li>
-                <li title='任何疑惑都可以在这里提问' onclick="window.location.href='https://github.com/hai2007/image2D/issues'">
-                    参与讨论
+                    常见问题
                 </li>
                 <li onclick="window.location.href='https://github.com/hai2007/image2D'" class='icon git-url'
                     title='image2D 源码'>
                     Fork-me-on-Github
                 </li>
                 <li class="editor" @click="openEdit()" title='发现错误？想参与编辑？ 在 GitHub 上编辑此页！'>编辑</li>
-                <li onclick="window.location.href='https://www.oschina.net/p/image2d'" title='Open Source China'>
-                    <span>
-                        开源中国
-                    </span>
-                </li>
-                <li class='Sponsors menu-1' onclick="window.location.href='https://hai2007.gitee.io/sweethome/#/Sponsors'" title='完全开源的项目，捐款支持我们！'>
-                    Sponsors
+                <li class='new-open menu-1'
+                    onclick="window.location.href='https://hai2007.gitee.io/sweethome/#/Sponsors'"
+                    title='完全开源的项目，捐款支持我们！'>
+                    支持我们
                 </li>
             </ul>
         </nav>
@@ -125,12 +142,80 @@
                     cursor: pointer;
                     font-weight: bold;
                     height: 100%;
+                    position: relative;
+                    margin-right: 20px;
 
-                    &.line {
-                        height: .44rem;
-                        padding: 0;
-                        border-left: 1px dashed rgb(199, 199, 207);
-                        margin: 0 .1rem;
+                    &.select {
+                        margin-right: 20px;
+                        white-space: nowrap;
+
+                        &>i {
+                            &::after {
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-top: -1px;
+                                margin-left: 6px;
+                                margin-right: -14px;
+                                width: 0;
+                                height: 0;
+                                border-left: 4px solid transparent;
+                                border-right: 4px solid transparent;
+                                border-top: 5px solid #4f5959;
+                                content: " ";
+                            }
+
+                            font-style:normal;
+                        }
+
+                        &:hover {
+                            &>div {
+                                display: block;
+                            }
+                        }
+
+                        position: relative;
+
+                        &>div {
+                            display: none;
+                            position: absolute;
+                            box-shadow: 1px 1px 6px 0px #858889;
+                            padding: 10px 20px;
+                            top: 40px;
+                            right: 0px;
+                            background-color: white;
+                            line-height: 2em;
+                            cursor: default;
+
+                            &>a {
+                                display: block;
+                                color: black;
+                                font-weight: 200;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+
+                            }
+
+                            &>h2 {
+                                font-size: 14px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+
+                    &.new-open {
+                        &::after {
+                            position: absolute;
+                            background-image: url('./assets/link.png');
+                            background-repeat: no-repeat;
+                            content: " ";
+                            display: inline-block;
+                            width: 11px;
+                            height: 11px;
+                            top: 15px;
+                            right: -10px;
+                        }
                     }
 
                     &.icon {
@@ -153,22 +238,9 @@
                         font-size: 0;
                     }
 
-                    &.Sponsors {
-                        color: #d1bba1;
-                        font-weight: 200;
-                        font-size: 16px;
-                        font-family: fantasy;
-                    }
-
                     &[active='yes'] {
-                        color: red;
-                    }
-
-                    &>span {
-                        padding: .04rem;
-                        border-radius: .03rem;
-                        background-color: #711e32;
-                        color: white;
+                        color: #f55d48;
+                        border-bottom: 3px solid #f55d48;
                     }
                 }
             }

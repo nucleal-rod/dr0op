@@ -39,22 +39,22 @@ module.exports = {
     // 定义任务
     task: {
 
-        init(cuf, pkg) {
+        init(nodejs, pkg) {
 
-            cuf.print(pkg.name + "@" + pkg.version + " " + pkg.description);
+            nodejs.print(pkg.name + "@" + pkg.version + " " + pkg.description);
 
             // 如果打包后的文件存在
-            if (fs.existsSync('./build')) cuf.deleteSync('./build');
+            if (fs.existsSync('./build')) nodejs.deleteSync('./build');
 
-            cuf.log("\n-----------------------\n环境整理完毕，开始打包！\n-----------------------");
-            cuf.print("Date : " + new Date() + "\n");
+            nodejs.log("\n-----------------------\n环境整理完毕，开始打包！\n-----------------------");
+            nodejs.print("Date : " + new Date() + "\n");
 
         },
 
-        end(cuf) {
+        end(nodejs) {
 
-            cuf.log("\n-----------------------\n打包完毕！\n-----------------------");
-            cuf.print("Date : " + new Date() + "\n\n");
+            nodejs.log("\n-----------------------\n打包完毕！\n-----------------------");
+            nodejs.print("Date : " + new Date() + "\n\n");
 
             // 打印文件大小
             const printFileSize = function (index, url) {
@@ -70,7 +70,7 @@ module.exports = {
                             else return (bytes / 1073741824).toFixed(3) + " GB";
                         })(stats.size);
 
-                        cuf.log("[" + index + "]    " + url + "    " + size);
+                        nodejs.log("[" + index + "]    " + url + "    " + size);
                     }
 
                 });
@@ -85,15 +85,15 @@ module.exports = {
          * 第一步：模块打包
          * ----------------------
          */
-        bundle(cuf) {
+        bundle(nodejs) {
             async function build(inputOptions, outputOptions) {
                 const bundle = await rollup.rollup(inputOptions);
                 await bundle.write(outputOptions);
 
-                cuf.error('模块打包完毕');
+                nodejs.error('模块打包完毕');
             }
 
-            cuf.log("\n[1]模块打包:./build/module.new.js\n");
+            nodejs.log("\n[1]模块打包:./build/module.new.js\n");
 
             build({
                 input: 'src/index.js',
@@ -124,9 +124,9 @@ module.exports = {
          * 第二步：babel转义
          * ----------------------
          */
-        babel(cuf, pkg) {
+        babel(nodejs, pkg) {
 
-            cuf.log("\n[2]babel转义:./build/module.new.js → ./build/image2D.js\n");
+            nodejs.log("\n[2]babel转义:./build/module.new.js → ./build/image2D.js\n");
 
             babel.transformFile("./build/module.new.js", {}, function (err, result) {
                 if (!err) {
@@ -145,9 +145,9 @@ module.exports = {
                                             ———— 摘自 莫顿·亨特《走一步，再走一步》
 
 */`);
-                    cuf.deleteSync("./build/module.new.js");
+                    nodejs.deleteSync("./build/module.new.js");
 
-                    cuf.error('转义完毕');
+                    nodejs.error('转义完毕');
                 } else {
                     console.log(err);
                 }
@@ -158,9 +158,9 @@ module.exports = {
          * 第三步：压缩代码
          * ----------------------
          */
-        uglifyjs(cuf, pkg) {
+        uglifyjs(nodejs, pkg) {
 
-            cuf.log("\n[3]压缩代码:./build/image2D.js → ./build/image2D.min.js\n");
+            nodejs.log("\n[3]压缩代码:./build/image2D.js → ./build/image2D.min.js\n");
 
             cp.exec("uglifyjs ./build/image2D.js -m -o ./build/uglifyjs.new.js", function (error) {
                 if (error) {
@@ -170,9 +170,9 @@ module.exports = {
                     fs.writeFileSync("./build/image2D.min.js", banner(pkg));
                     fs.appendFileSync("./build/image2D.min.js", fs.readFileSync("./build/uglifyjs.new.js"));
 
-                    cuf.error('压缩完毕');
+                    nodejs.error('压缩完毕');
                 }
-                cuf.deleteSync("./build/uglifyjs.new.js");
+                nodejs.deleteSync("./build/uglifyjs.new.js");
             });
         }
 
