@@ -6,54 +6,54 @@ interface painter_config {
     /**
      * 填充色或图案，默认"#000"
      */
-    fillStyle: string,
+    fillStyle?: string,
 
     /**
      * 轮廓色或图案，默认"#000"
      */
-    strokeStyle: string,
+    strokeStyle?: string,
 
     /**
      * 线条宽度，默认1(单位px)
      */
-    lineWidth: number,
+    lineWidth?: number,
 
     /**
      * 文字水平对齐方式，默认"left"左对齐（还有"center"居中和"right"右对齐）
      */
-    textAlign: string,
+    textAlign?: string,
 
     /**
      * 文字垂直对齐方式，默认"middle"垂直居中（还有"top"上对齐和"bottom"下对齐）
      */
-    textBaseline: string,
+    textBaseline?: string,
 
     /**
      * 文字大小，默认16
      */
-    "font-size": number,
+    "font-size"?: number,
 
     /**
      * 字体，默认"sans-serif"
      */
-    "font-family": string,
+    "font-family"?: string,
 
     /**
      * 圆弧开始端闭合方式，默认"butt"直线闭合（还有"round"圆帽闭合,"-round"反圆帽闭合）
      */
-    "arc-start-cap": string,
+    "arc-start-cap"?: string,
 
     /**
      * 圆弧结束端闭合方式，默认"butt"直线闭合（还有"round"圆帽闭合,"-round"反圆帽闭合）
      */
-    "arc-end-cap": string,
+    "arc-end-cap"?: string,
 
     /**
      * 设置线条虚线，默认为[]表示使用实线绘制
      *
      * 值应该是一个数组，格式：[实线长，虚线长，实线长 ...]，数组长度任意，会自动循环
      */
-    lineDash: string
+    lineDash?: string
 
 }
 
@@ -67,7 +67,7 @@ export interface painter {
     /**
      * 对画笔进行配置
      */
-    config(option: painter_config): painter,
+    config(option: painter_config | string, value?: string): painter,
 
     // 位图画笔
 

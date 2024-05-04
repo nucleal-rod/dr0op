@@ -1,5 +1,5 @@
 import { image2D_Object } from "./image2D.d";
-import { point , ruler} from './type.d';
+import { point, ruler } from './type.d';
 import { dot } from './dot.d';
 import { matrix4 } from './matrix4.d';
 import { cardinal } from './interpolation.d';
@@ -61,7 +61,7 @@ image2D.dot = (init: {
  * 返回一个矩阵对象
  * @param initMatrix4 一个初始化矩阵或默认采用单位矩阵E初始化
  */
-image2D.Matrix4 = (initMatrix4?:any): matrix4 => { };
+image2D.Matrix4 = (initMatrix4?: any): matrix4 => { };
 
 // 曲线插值
 
@@ -94,7 +94,7 @@ image2D.map = (config?: map_options): map => { };
 /**
  * 动画方法
  */
-image2D.animation = (doit: Function, speeds?: number, endBack?: Function, timing): Function => { };
+image2D.animation = (doit: Function, speeds?: number, endBack?: Function, timing?): Function => { };
 
 /**
  * 定任意一个合法的css颜色字符串，把颜色统一转变成rgba格式，返回一个数组[r,g,b,a]

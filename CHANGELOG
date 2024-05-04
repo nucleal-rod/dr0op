@@ -289,3 +289,7 @@ v1.16.1:
     date:2021-11-07
     changes:
       -  优化 “刻度尺刻度求解“ ruler.js 刻度不均分的问题： https://github.com/hai2007/tool.js/issues/2
+v1.16.2:
+    date:2021-12-12
+    changes:
+      -  types下的部分参数为兼容ts语法进行调整
