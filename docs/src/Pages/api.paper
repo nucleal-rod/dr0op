@@ -82,7 +82,7 @@
                 cursor: pointer;
                 position: absolute;
                 right: .3rem;
-                background-image: url('../assets/toTop.png');
+                background-image: url('./image/toTop.png');
                 font-size: 0;
                 height: .95rem;
                 width: .5rem;

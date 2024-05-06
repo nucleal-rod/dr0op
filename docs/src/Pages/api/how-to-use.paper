@@ -151,7 +151,7 @@ $$("canvas")
 </script>
 <style>
     .guider-demo1 {
-        background-image: url("../../assets/guider-demo1.png");
+        background-image: url("./image/guider-demo1.png");
         height: 1.6rem;
         background-repeat: no-repeat;
         background-position: left center;

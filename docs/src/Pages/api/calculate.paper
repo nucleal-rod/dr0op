@@ -471,7 +471,7 @@ map.config({
 </script>
 <style>
     .layout-tree_design {
-        background-image: url("../../assets/layout-tree_design.png");
+        background-image: url("./image/layout-tree_design.png");
         height: 3.2rem;
         background-repeat: no-repeat;
         background-position: left center;

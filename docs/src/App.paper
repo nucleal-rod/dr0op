@@ -116,7 +116,7 @@
             background-color: rgba(255, 255, 255, 1.0);
             box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
             font-size: 0.2rem;
-            background-image: url('./assets/image2D.png');
+            background-image: url('./image/image2D.png');
             background-position: .2rem center;
             background-size: 0.3rem auto;
             background-repeat: no-repeat;
@@ -207,7 +207,7 @@
                     &.new-open {
                         &::after {
                             position: absolute;
-                            background-image: url('./assets/link.png');
+                            background-image: url('./image/link.png');
                             background-repeat: no-repeat;
                             content: " ";
                             display: inline-block;
@@ -224,7 +224,7 @@
                         background-position: center center;
 
                         &.git-url {
-                            background-image: url('./assets/github.png');
+                            background-image: url('./image/github.png');
                             width: 1rem;
                             background-size: 90% auto;
                         }
@@ -233,7 +233,7 @@
                     &.editor {
                         width: 0.44rem;
                         height: 0.44rem;
-                        background-image: url("./assets/edit.png");
+                        background-image: url("./image/edit.png");
                         background-size: 100% auto;
                         font-size: 0;
                     }

@@ -307,7 +307,7 @@ $$([imageObject, enter]).loop(function(data,index,target){
 </script>
 <style>
     .enter_exit {
-        background-image: url("../../assets/enter_exit.png");
+        background-image: url("./image/enter_exit.png");
         height: 2.2rem;
         background-repeat: no-repeat;
         background-position: left center;
