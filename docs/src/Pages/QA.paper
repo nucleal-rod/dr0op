@@ -1,6 +1,6 @@
 <template>
     <div class='api-view'>
-        <p>
+        <p class='tips'>
             这里汇总开发中常见问题，如果这里没有包含你的疑惑，可以去
             <a href="https://github.com/hai2007/image2D/issues">issue</a>
             中提，有价值的最终会被整理回这里！
@@ -47,9 +47,19 @@
 
 </script>
 <style>
-    .title {
-        border-bottom: 1px solid gray;
-        margin-top: .2rem;
-    }
+    .api-view {
+        max-width: 900px;
+        margin: 50px auto;
 
+        .tips {
+            background: #f5f5dc;
+            color: #8c7d7d;
+            font-weight: 200;
+        }
+
+        .title {
+            border-bottom: 1px solid gray;
+            margin-top: .2rem;
+        }
+    }
 </style>

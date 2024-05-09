@@ -118,4 +118,4 @@ painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);
 ---------------------------------------
 [MIT](https://github.com/hai2007/image2D/blob/master/LICENSE)
 
-Copyright (c) 2018-2021 [hai2007](https://hai2007.gitee.io/sweethome/) 走一步，再走一步。
+Copyright (c) 2018-2022 [hai2007](https://hai2007.gitee.io/sweethome/) 走一步，再走一步。

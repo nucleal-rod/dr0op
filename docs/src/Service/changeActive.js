@@ -1,5 +1,5 @@
-import $$ from 'image2d';
+import image2D from 'image2d';
 export default function (className, tagetClass) {
-    $$('.' + className).attr('active', 'no');
-    $$('.' + className + "." + tagetClass).attr('active', 'yes');
+    image2D('.' + className).attr('active', 'no');
+    image2D('.' + className + "." + tagetClass).attr('active', 'yes');
 };
