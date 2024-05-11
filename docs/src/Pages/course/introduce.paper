@@ -76,7 +76,7 @@ var painter=$$('canvas').attr({
         <pre q-code>painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);</pre>
         <p>
             这样，一个圆弧就绘制好了，可以
-            <a href="./inline/example-1.html" target="_blank">点击此次</a>
+            <a href="./inline/example-1.html" target="_blank">点击此处</a>
             查看运行效果。
         </p>
         <p>
