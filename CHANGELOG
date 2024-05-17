@@ -293,3 +293,8 @@ v1.16.2:
     date:2021-12-12
     changes:
       -  types下的部分参数为兼容ts语法进行调整
+v1.16.3:
+    date:2022-01-13
+    changes:
+      -  types下的部分参数为兼容ts语法进行调整
+         (image2D.d.ts、index.d.ts等)

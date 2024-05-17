@@ -1,53 +1,53 @@
 {
-  "name": "image2d",
-  "version": "1.16.2",
-  "description": "🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.",
-  "main": "build/image2D.min.js",
-  "typings": "types/index.d.ts",
-  "sideEffects": false,
-  "scripts": {
-    "start": "npm install && npm run build",
-    "build": "npm run build:init && npm run build:bundle && npm run build:babel && npm run build:uglifyjs && npm run build:end",
-    "build:init": "nodejs --config ./nodejs.config.js init",
-    "build:end": "nodejs --config ./nodejs.config.js end",
-    "build:bundle": "nodejs --config ./nodejs.config.js bundle",
-    "build:babel": "nodejs --config ./nodejs.config.js babel",
-    "build:uglifyjs": "nodejs --config ./nodejs.config.js uglifyjs",
-    "server": "nodejs --server 30000"
-  },
-  "keywords": [
-    "image",
-    "algorithm",
-    "svg",
-    "canvas",
-    "tree",
-    "js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hai2007/image2D.git"
-  },
-  "author": {
-    "name": "你好2007",
-    "url": "https://hai2007.gitee.io/sweethome/"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hai2007/image2D/issues"
-  },
-  "homepage": "https://hai2007.gitee.io/image2d/index.html",
-  "devDependencies": {
-    "@hai2007/nodejs": "^2.0.1",
-    "babel-core": "^6.26.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-es2015": "^6.24.1",
-    "rollup": "^1.32.1",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "uglify-js": "^3.5.6"
-  },
-  "dependencies": {
-    "@hai2007/algorithm": "^0.7.2",
-    "@hai2007/tool": "^0.9.3"
-  }
+    "name": "image2d",
+    "version": "1.16.3",
+    "description": "🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.",
+    "main": "build/image2D.min.js",
+    "typings": "types/index.d.ts",
+    "sideEffects": false,
+    "scripts": {
+        "start": "npm install && npm run build",
+        "build": "npm run build:init && npm run build:bundle && npm run build:babel && npm run build:uglifyjs && npm run build:end",
+        "build:init": "nodejs --config ./nodejs.config.js init",
+        "build:end": "nodejs --config ./nodejs.config.js end",
+        "build:bundle": "nodejs --config ./nodejs.config.js bundle",
+        "build:babel": "nodejs --config ./nodejs.config.js babel",
+        "build:uglifyjs": "nodejs --config ./nodejs.config.js uglifyjs",
+        "server": "nodejs --server 30000"
+    },
+    "keywords": [
+        "image",
+        "algorithm",
+        "svg",
+        "canvas",
+        "tree",
+        "js"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hai2007/image2D.git"
+    },
+    "author": {
+        "name": "你好2007",
+        "url": "https://hai2007.gitee.io/sweethome/"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hai2007/image2D/issues"
+    },
+    "homepage": "https://hai2007.gitee.io/image2d/index.html",
+    "devDependencies": {
+        "@hai2007/nodejs": "^2.0.1",
+        "babel-core": "^6.26.0",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-preset-es2015": "^6.24.1",
+        "rollup": "^1.32.1",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "uglify-js": "^3.5.6"
+    },
+    "dependencies": {
+        "@hai2007/algorithm": "^0.7.2",
+        "@hai2007/tool": "^0.9.3"
+    }
 }

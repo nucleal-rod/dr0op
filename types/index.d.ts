@@ -11,7 +11,7 @@ import { map_options, map } from './map.d';
  * @param selector 选择器
  * @param context 可选，查找上下文
  */
-declare function image2D(selector: Function | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: Element): image2D_Object;
+declare function image2D(selector: Function | null | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: Element): image2D_Object;
 
 export default image2D;
 

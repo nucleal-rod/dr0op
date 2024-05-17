@@ -20,28 +20,28 @@ export interface image2D_Object {
      * @param target 目标节点
      * @param context 可选，查找上下文
      */
-    appendTo(target: Function | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: Element): image2D_Object,
+    appendTo(target: Function | null | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: null | Element): image2D_Object,
 
     /**
      * 把当前维护的结点加到目标结点内部的开头
      * @param target 目标节点
      * @param context 可选，查找上下文
      */
-    prependTo(target: Function | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: Element): image2D_Object,
+    prependTo(target: Function | null | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: null | Element): image2D_Object,
 
     /**
      * 把当前维护的结点加到目标结点之后
      * @param target 目标节点
      * @param context 可选，查找上下文
      */
-    afterTo(target: Function | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: Element): image2D_Object,
+    afterTo(target: Function | null | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: null | Element): image2D_Object,
 
     /**
      * 把当前维护的结点加到目标结点之前
      * @param target 目标节点
      * @param context 可选，查找上下文
      */
-    beforeTo(target: Function | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: Element): image2D_Object,
+    beforeTo(target: Function | null | Element | string | image2D_Object | Array<Element | image2D_Object>, context?: null | Element): image2D_Object,
 
     /**
      * 从页面中删除当前维护的结点
@@ -87,7 +87,7 @@ export interface image2D_Object {
      *
      * (json):设置大量样式。
      */
-    css(): string | image2D_Object,
+    css(key?: any, value?: string): string | image2D_Object,
 
     /**
      * 设置或获取结点属性:
@@ -98,7 +98,7 @@ export interface image2D_Object {
      *
      * (json):设置大量属性。
      */
-    attr(): string | image2D_Object,
+    attr(attr?: any, value?: string): string | image2D_Object,
 
     // 事件
 
@@ -131,7 +131,7 @@ export interface image2D_Object {
      *
      * (data, calcback):和带一个参数类似，只不过绑定的数据是经过calcback函数重新计算后返回的值，该函数有二个形参：data和index。
      */
-    datum(): image2D_Object,
+    datum(data?: any, calcback?: Function): image2D_Object,
 
     /**
      * 把一组数据绑定到一组结点或返回一组结点数据
@@ -146,7 +146,7 @@ export interface image2D_Object {
     *
     * @return update
     */
-    data(): image2D_Object,
+    data(data?: any, calcback?: Function): image2D_Object,
 
     /**
     * update上的节点追加方法
