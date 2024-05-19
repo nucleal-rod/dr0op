@@ -53,7 +53,7 @@ interface painter_config {
      *
      * 值应该是一个数组，格式：[实线长，虚线长，实线长 ...]，数组长度任意，会自动循环
      */
-    lineDash?: string
+    lineDash?: Array<number>
 
 }
 
